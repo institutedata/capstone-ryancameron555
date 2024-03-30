@@ -17,10 +17,6 @@ const { insertDataIntoDatabase } = require('../config/dataInsertion');
 // @route   GET /apiPull
 // @access  Public
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 const getAPIExercise = async (req, res) => {
   try {
     // Extracting type, muscle, and difficulty from query parameters
