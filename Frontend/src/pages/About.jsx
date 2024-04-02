@@ -18,14 +18,22 @@ const About = () => {
       <div>
         <Coaches />
       </div>
-      <StyledCardContainer>
+      <Grid
+        container
+        spacing={10}
+        style={{
+          margin: '2.5vh auto', // Center horizontally
+          width: '100%',
+          height: 'auto',
+        }}
+      >
         <Grid item xs={6}>
           <JamieCard />
         </Grid>
         <Grid item xs={6}>
           <RyanCard />
         </Grid>
-      </StyledCardContainer>
+      </Grid>
       <br />
       <div>
         <Timetable />

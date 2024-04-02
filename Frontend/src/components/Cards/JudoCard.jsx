@@ -9,30 +9,32 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import judoThrow from '../../assets/judoImages/judoThrow.jpg';
 import { CardStyles } from './CardStyles';
-import JudoExp from '../Text/JudoExp';
+import JudoExpContent from '../Text/JudoExp';
 import JudoDialog from '../Dialog/JudoDialog';
+import { StyledCardContainer } from '../../themes/styles/default';
 
 export default function JudoCard() {
   return (
-    <Card style={CardStyles.root}>
-      <CardMedia
-        style={CardStyles.media}
-        image={judoThrow}
-        title="Judo Throw"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          What is Judo?
-        </Typography>
-        <Typography variant="body2" color="text.primary">
-          The word "judo" translates to "the gentle way," reflecting its
-          principle of using an opponent's force and movements against them.
-        </Typography>
-      </CardContent>
-      <CardActions>
-        {/* <Button size="small">Read More</Button> */}
-        <JudoDialog dialogText={<JudoExp />} />
-      </CardActions>
-    </Card>
+    <StyledCardContainer>
+      <Card style={CardStyles.root}>
+        <CardMedia
+          style={CardStyles.media}
+          image={judoThrow}
+          title="Judo Throw"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            What is Judo?
+          </Typography>
+          <Typography variant="body2" color="text.primary">
+            The word "judo" translates to "the gentle way," reflecting its
+            principle of using an opponent's force and movements against them.
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <JudoDialog dialogText={<JudoExpContent />} />
+        </CardActions>
+      </Card>
+    </StyledCardContainer>
   );
 }

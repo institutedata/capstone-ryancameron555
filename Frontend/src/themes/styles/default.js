@@ -105,23 +105,33 @@ export const StyledContainer = styled('div')(({ theme }) => ({
 // Hero section styles
 export const HeroSection = styled('div')(({ theme }) => ({
   backgroundImage: `url(${classImage})`,
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
   color: '#b70000',
-  // padding: theme.spacing(10),
   textAlign: 'center',
   width: '100%',
-  position: 'relative', // Ensure position is relative for the overlay
+  position: 'relative',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexDirection: 'column',
+  height: 'auto',
+  padding: '0 5vw', // Use percentage-based padding for flexibility
+
   '& h2, & h6': {
     color: 'white',
     fontWeight: 'bold',
+    margin: '10px 0', // Add some margin to the headings
   },
+
   '&::before': {
     content: '""',
     position: 'absolute',
     top: 0,
     left: 0,
     width: '100%',
-    height: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.4)', // Adjust the opacity here (0.4 for 40% opacity)
+    height: 'auto',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
     zIndex: -1,
   },
 }));
@@ -140,9 +150,29 @@ export const StyledPageArea = styled('div')(({ theme }) => ({
 export const StyledCardContainer = styled('div')(({ theme }) => ({
   backgroundColor: 'default',
   display: 'flex',
-  justifyContent: 'space-evenly', // To evenly space the items horizontally
-  alignItems: 'center', // To vertically center the items
+  justifyContent: 'center',
   width: '100%',
   height: 'auto',
   borderRadius: '10px',
 }));
+
+// Home styled section
+export const PageContainer = styled('div')({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '100%',
+  height: 'auto',
+  padding: '20px', // Add padding to create space around the content
+
+  '@media (max-width: 600px)': {
+    flexDirection: 'column', // Change flex direction to column for small screens
+    alignItems: 'center', // Adjust alignment for small screens
+  },
+  '@media (min-width: 601px) and (max-width: 1024px)': {
+    flexDirection: 'row', // Change flex direction to row for medium screens
+    flexWrap: 'wrap', // Allow containers to wrap into multiple rows
+    justifyContent: 'center', // Center containers horizontally for medium screens
+  },
+});

@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Dialog from '@mui/material/Dialog';
 import Button from '@mui/material/Button';
-import JudoExp from '../Text/JudoExp.jsx';
+import JudoExpContent from '../Text/JudoExp.jsx';
 import DialogStyled from './DialogStyles.js';
 // ... other imports
 
@@ -23,7 +23,7 @@ OpenDialogButton.propTypes = {
 function DialogContent({ open, onClose }) {
   return (
     <Dialog open={open} onClose={onClose}>
-      <JudoExp />
+      <JudoExpContent />
     </Dialog>
   );
 }
