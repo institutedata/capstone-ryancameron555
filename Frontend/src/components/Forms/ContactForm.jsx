@@ -8,7 +8,12 @@ import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import emailjs from 'emailjs-com';
-import { FormContainer, FieldContainer, ButtonContainer } from './FormStyles';
+import {
+  FormContainer,
+  FieldContainer,
+  ButtonContainer,
+  RowContainer,
+} from './FormStyles';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -79,44 +84,52 @@ const ContactForm = () => {
   return (
     <>
       <FormContainer onSubmit={handleSubmit}>
-        <FieldContainer>
-          <TextField
-            label="Name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </FieldContainer>
-        <FieldContainer>
-          <TextField
-            label="Surname"
-            name="surname"
-            value={formData.surname}
-            onChange={handleChange}
-            required
-          />
-        </FieldContainer>
-        <FieldContainer>
-          <TextField
-            label="Email Address"
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </FieldContainer>
-        <FieldContainer>
-          <TextField
-            label="Phone Number"
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-          />
-        </FieldContainer>
+        <RowContainer>
+          <FieldContainer>
+            <TextField
+              label="Name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              sx={{ width: '95%' }}
+            />
+          </FieldContainer>
+          <FieldContainer>
+            <TextField
+              label="Surname"
+              name="surname"
+              value={formData.surname}
+              onChange={handleChange}
+              required
+              sx={{ width: '100%' }}
+            />
+          </FieldContainer>
+        </RowContainer>
+        <RowContainer>
+          <FieldContainer>
+            <TextField
+              label="Email Address"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              sx={{ width: '95%' }}
+            />
+          </FieldContainer>
+          <FieldContainer>
+            <TextField
+              label="Phone Number"
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              sx={{ width: '100%' }}
+            />
+          </FieldContainer>
+        </RowContainer>
         <FieldContainer>
           <TextField
             label="Message"
@@ -125,7 +138,9 @@ const ContactForm = () => {
             onChange={handleChange}
             multiline
             rows={4}
+            columns={30}
             required
+            sx={{ width: '100%' }}
           />
         </FieldContainer>
         <FieldContainer>

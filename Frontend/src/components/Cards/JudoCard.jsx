@@ -11,7 +11,7 @@ import judoThrow from '../../assets/judoImages/judoThrow.jpg';
 import { CardStyles } from './CardStyles';
 import JudoExpContent from '../Text/JudoExp';
 import JudoDialog from '../Dialog/JudoDialog';
-import { StyledCardContainer } from '../../themes/styles/default';
+import { StyledCardContainer } from '../../components/Cards/CardStyles';
 
 export default function JudoCard() {
   return (
@@ -31,7 +31,7 @@ export default function JudoCard() {
             principle of using an opponent's force and movements against them.
           </Typography>
         </CardContent>
-        <CardActions>
+        <CardActions style={CardStyles.actions}>
           <JudoDialog dialogText={<JudoExpContent />} />
         </CardActions>
       </Card>

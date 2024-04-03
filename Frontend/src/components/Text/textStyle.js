@@ -5,11 +5,12 @@ import { styled } from '@mui/material/styles';
 
 // Define a styled component for the whole div
 export const StyledDiv = styled('div')(({ theme }) => ({
-  backgroundColor: theme.palette.background.paper, // Match the theme's background color
-  color: theme.palette.text.primary, // Match the theme's primary text color
-  borderRadius: theme.shape.borderRadius, // Match the theme's border radius
-  padding: '1vh', // Add padding using theme spacing
-  marginTop: '5vh', // Add margin using theme spacing
+  backgroundColor: theme.palette.background.paper,
+  color: theme.palette.text.primary,
+  borderRadius: theme.shape.borderRadius,
+  padding: '1vh',
+  marginTop: '5vh',
+  textAlign: 'center',
 }));
 
 // Define a styled component for list items

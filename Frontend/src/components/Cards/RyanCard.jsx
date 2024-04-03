@@ -6,18 +6,22 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import RyanImage from '../../assets/judoImages/ryanjudo.jpg';
-import { CardStyles } from './CardStyles';
+import { CardStyles, CoachCardStyles } from './CardStyles';
 
 export default function MediaCard() {
   return (
-    <Card sx={CardStyles.root}>
-      <CardMedia sx={CardStyles.media} image={RyanImage} title="Jamie Hopson" />
+    <Card sx={CoachCardStyles.root}>
+      <CardMedia
+        sx={CoachCardStyles.media}
+        image={RyanImage}
+        title="Ryan Cameron"
+      />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Sensei Jamie Hopson
+          Sensei Ryan Cameron
         </Typography>
         <Typography gutterBottom variant="h6" component="div">
-          Head Coach
+          Assistant Coach
         </Typography>
       </CardContent>
     </Card>

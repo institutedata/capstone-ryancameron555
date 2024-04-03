@@ -63,21 +63,15 @@ export const HeroSection = styled('div')(({ theme }) => ({
 // Default div style with white background
 export const StyledPageArea = styled('div')(({ theme }) => ({
   backgroundColor: 'white',
+  color: theme.palette.text.primary,
   display: 'flex',
-  justifyContent: 'space-evenly', // To evenly space the items horizontally
-  alignItems: 'center', // To vertically center the items
+  flexDirection: 'column',
+  justifyContent: 'space-evenly',
+  alignItems: 'center',
   width: '100%',
   height: 'auto',
   borderRadius: '10px',
-}));
-
-export const StyledCardContainer = styled('div')(({ theme }) => ({
-  backgroundColor: 'default',
-  display: 'flex',
-  justifyContent: 'center',
-  width: '100%',
-  height: 'auto',
-  borderRadius: '10px',
+  textAlign: 'center',
 }));
 
 // Home styled section
@@ -88,10 +82,10 @@ export const PageContainer = styled('div')({
   justifyContent: 'center',
   width: '100%',
   minHeight: '100vh', // Set minimum height to fill the viewport
-  padding: '20px', // Add padding to create space around the content
+  padding: '3vw', // Add padding to create space around the content
 
   '@media (max-width: 600px)': {
-    flexDirection: 'column', // Change flex direction to column for small screens
+    // flexDirection: 'column',
     alignItems: 'center', // Adjust alignment for small screens
   },
   '@media (min-width: 601px) and (max-width: 1024px)': {

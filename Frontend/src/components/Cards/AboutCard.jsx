@@ -25,7 +25,7 @@ export default function AboutCard() {
           teaching people of all ages,sizes and physical ability.
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions style={CardStyles.actions}>
         {/* <Button size="small">Read More</Button> */}
         <AboutDialog dialogText={<Hajamie />} />
       </CardActions>

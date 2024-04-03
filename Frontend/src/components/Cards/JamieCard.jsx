@@ -6,13 +6,13 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import jamieImage from '../../assets/judoImages/jamie.jpg';
-import { CardStyles } from './CardStyles';
+import { CardStyles, CoachCardStyles } from './CardStyles';
 
 export default function MediaCard() {
   return (
-    <Card sx={CardStyles.root}>
+    <Card sx={CoachCardStyles.root}>
       <CardMedia
-        sx={CardStyles.media}
+        sx={CoachCardStyles.media}
         image={jamieImage}
         title="Jamie Hopson"
       />

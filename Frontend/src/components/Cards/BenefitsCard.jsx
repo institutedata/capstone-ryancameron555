@@ -25,8 +25,7 @@ export default function BenefitsCard() {
           development of effective self-defense skills.
         </Typography>
       </CardContent>
-      <CardActions>
-        {/* <Button size="small">Read More</Button> */}
+      <CardActions style={CardStyles.actions}>
         <BenefitsDialog dialogText={<Benefits />} />
       </CardActions>
     </Card>
