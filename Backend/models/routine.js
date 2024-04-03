@@ -2,6 +2,7 @@
 
 const { DataTypes, Model } = require('sequelize');
 let dbConnect = require('../config/dbConnect');
+const Exercise = require('./exercise');
 
 const sequelizeInstance = dbConnect.Sequelize;
 
@@ -16,7 +17,7 @@ Routine.init(
       autoIncrement: true,
       primaryKey: true,
     },
-    email: {
+    user: {
       type: DataTypes.STRING,
       allowNull: false,
       required: true,
@@ -28,11 +29,6 @@ Routine.init(
       required: true,
       // unique: true,
     },
-    exercises: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      required: true,
-    },
   },
 
   {
@@ -42,5 +38,9 @@ Routine.init(
     freezeTableName: true,
   }
 );
+
+// Define the many-to-many association between Routine and Exercise
+Routine.belongsToMany(Exercise, { through: 'RoutineExercise' });
+Exercise.belongsToMany(Routine, { through: 'RoutineExercise' });
 
 module.exports = Routine;
