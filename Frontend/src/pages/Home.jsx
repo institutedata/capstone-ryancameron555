@@ -1,6 +1,5 @@
 /** @format */
 
-import React from 'react';
 import Hero from '../components/Hero';
 import JudoCard from '../components/Cards/JudoCard';
 import AboutCard from '../components/Cards/AboutCard';

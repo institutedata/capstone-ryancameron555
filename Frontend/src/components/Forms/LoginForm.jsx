@@ -8,24 +8,37 @@ import {
   FormLabel,
   FormInput,
   FormButton,
-  FormLink,
 } from './FormStyles';
+import SignupDialog from '../Dialog/SignupDialog';
 
 export default function LoginForm() {
   return (
-    <FormContainer>
-      <FieldContainer>
-        <FormLabel>Email</FormLabel>
-        <FormInput name="email" type="email" placeholder="johndoe@email.com" />
-      </FieldContainer>
-      <FieldContainer>
-        <FormLabel>Password</FormLabel>
-        <FormInput name="password" type="password" placeholder="password" />
-      </FieldContainer>
-      <ButtonContainer>
-        <FormButton>Log in</FormButton>
-      </ButtonContainer>
-      <FormLink href="/sign-up">Sign up</FormLink>
-    </FormContainer>
+    <div>
+      <FormContainer>
+        <FieldContainer>
+          <FormLabel>Email</FormLabel>
+          <FormInput
+            name="email"
+            type="email"
+            placeholder="johndoe@email.com"
+            autoComplete="email" // Add autocomplete
+          />
+        </FieldContainer>
+        <FieldContainer>
+          <FormLabel>Password</FormLabel>
+          <FormInput
+            name="password"
+            type="password"
+            placeholder="password"
+            autoComplete="current-password" // Add autocomplete
+          />
+        </FieldContainer>
+        <ButtonContainer>
+          <FormButton>Log in</FormButton>
+        </ButtonContainer>
+        <br></br>
+        <SignupDialog />
+      </FormContainer>
+    </div>
   );
 }
