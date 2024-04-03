@@ -7,11 +7,7 @@ import AboutCard from '../components/Cards/AboutCard';
 import BenefitsCard from '../components/Cards/BenefitsCard';
 import ContactForm from '../components/Forms/ContactForm';
 import Map from '../services/Maps';
-import {
-  StyledCardContainer,
-  StyledPageArea,
-  PageContainer,
-} from '../themes/styles/default';
+import { StyledPageArea, PageContainer } from '../themes/styles/default';
 import { Grid } from '@mui/material';
 
 const Home = () => {
@@ -22,17 +18,17 @@ const Home = () => {
         container
         spacing={1}
         style={{
-          margin: '2.5vh auto', // Center horizontally
+          margin: '2.5vh auto',
           width: '100%',
         }}
       >
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <AboutCard />
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <JudoCard />
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <BenefitsCard />
         </Grid>
       </Grid>

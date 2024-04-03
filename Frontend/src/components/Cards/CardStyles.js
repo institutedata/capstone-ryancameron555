@@ -13,7 +13,7 @@ export const CardStyles = {
     borderRadius: '10px',
   },
   media: {
-    height: '45%', // Set the height of the media
+    height: '50%', // Set the height of the media
     Width: 'auto%', // Set the width of the media
     paddingTop: 'auto',
     margin: '0.5vh',
