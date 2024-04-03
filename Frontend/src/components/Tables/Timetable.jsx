@@ -8,7 +8,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { TableStyles } from './TableStyles'; // Importing TableStyles
+import { TableStyles } from './TableStyles';
+import { StyledPageArea } from '../../themes/styles/default';
 
 function createData(day, pewees, juniors, seniors) {
   return { day, pewees, juniors, seniors };
@@ -23,10 +24,10 @@ const rows = [
 
 export default function BasicTable() {
   return (
-    <div>
-      <TableContainer component={Paper}>
+    <StyledPageArea>
+      <TableContainer component={Paper} sx={{ ...TableStyles.tableContainer }}>
         <h1>Timetable</h1>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <Table sx={{ minWidth: 'auto' }} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell sx={TableStyles.tableHeaderCell}>Day</TableCell>
@@ -47,14 +48,20 @@ export default function BasicTable() {
                 <TableCell component="th" scope="row">
                   {row.day}
                 </TableCell>
-                <TableCell align="right">{row.pewees}</TableCell>
-                <TableCell align="right">{row.juniors}</TableCell>
-                <TableCell align="right">{row.seniors}</TableCell>
+                <TableCell align="right" sx={{ width: '25%' }}>
+                  {row.pewees}
+                </TableCell>
+                <TableCell align="right" sx={{ width: '25%' }}>
+                  {row.juniors}
+                </TableCell>
+                <TableCell align="right" sx={{ width: '25%' }}>
+                  {row.seniors}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-    </div>
+    </StyledPageArea>
   );
 }

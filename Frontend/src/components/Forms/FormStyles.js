@@ -16,15 +16,23 @@ import { mainTheme } from '../../themes/Theme';
 
 export const FormContainer = styled('form')({
   display: 'flex',
+  flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  flexDirection: 'column',
-  Width: '100%',
+  width: '90%',
   padding: '2vw',
   border: '1px solid #ccc',
-  backgroundColor: '#ffffff', // Set background color to white
-  color: '#000000', // Set text color to black
-  margin: '2.5vh', // Remove default margin
+  borderRadius: '1vw',
+  backgroundColor: '#ffffff',
+  color: '#000000',
+  marginTop: '2.5vh',
+});
+
+export const RowContainer = styled('div')({
+  display: 'flex',
+  flexDirection: 'row', // Align fields horizontally
+  justifyContent: 'space-evenly',
+  width: '100%',
 });
 
 export const FieldContainer = styled('div')({
@@ -47,23 +55,23 @@ export const FormLabel = styled('label')({
   fontSize: '16px',
   marginBottom: '5px',
   color: '#000000 !important', // Set text color to black
-  margin: '50vh',
 });
 
-export const FormInput = styled(Input)({
+export const FormInput = styled(Input)(({ theme }) => ({
   width: '100%',
   padding: '10px',
   border: '1px solid #ccc',
-  borderRadius: '5px',
-  color: '#000000', // Set text color to black
+  borderRadius: '3vw',
+  color: theme.palette.text.primary,
   '& input': {
-    color: '#000000', // Set input text color to black
+    color: theme.palette.text.primary,
   },
-});
+}));
 
 export const FormButton = styled(Button)({
   width: '100%',
   padding: '10px',
+  justifyContent: 'center',
   backgroundColor: '#0056b3', // Set button background color
   color: '#000000', // Set button text color to white
   border: 'none',
@@ -94,7 +102,8 @@ export const FitnessFormContainer = styled('form')({
   padding: '20px', // Add padding
   backgroundColor: '#ffffff', // Set background color to white
   color: '#000000', // Set text color to black
-  boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.1)', // Add a subtle box shadow for visual appeal
+  boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.1)',
+  borderRadius: '3vw',
 });
 
 export const StyledMenuItem = styled(MenuItem)({

@@ -1,41 +1,48 @@
 /** @format */
 
-import React from 'react';
 import Coaches from '../components/Text/Coaches';
 import JamieCard from '../components/Cards/JamieCard';
 import RyanCard from '../components/Cards/RyanCard';
 import Timetable from '../components/Tables/Timetable';
-import JudoExp from '../components/Text/JudoExp';
 import JudoVideo from '../services/JudoVideo';
-import Benefits from '../components/Text/Benefits';
 import { Grid } from '@mui/material';
-import { StyledCardContainer } from '../themes/styles/default';
-// import JudoExp from '../components/Text/JudoExp';
+import { StyledCardContainer } from '../components/Cards/CardStyles';
+import { PageContainer, StyledPageArea } from '../themes/styles/default';
 
 const About = () => {
   return (
-    <div>
+    <PageContainer>
       <div>
         <Coaches />
       </div>
       <StyledCardContainer>
-        <Grid item xs={6}>
-          <JamieCard />
-        </Grid>
-        <Grid item xs={6}>
-          <RyanCard />
+        <Grid
+          container
+          spacing={2}
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            margin: '2.5vh ', // Center horizontally
+            width: '100%',
+            height: 'auto',
+          }}
+        >
+          <Grid item xs={12} sm={6}>
+            <JamieCard />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <RyanCard />
+          </Grid>
         </Grid>
       </StyledCardContainer>
-      <br />
-      <div>
+      <StyledPageArea>
         <Timetable />
-      </div>
+      </StyledPageArea>
       <br />
-      <div>
-        <h3>Watch this video from one of our favorite Judoka's</h3>
+      <StyledPageArea>
         <JudoVideo />
-      </div>
-    </div>
+      </StyledPageArea>
+    </PageContainer>
   );
 };
 

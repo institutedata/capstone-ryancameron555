@@ -5,7 +5,7 @@ import {
   StyledFooter,
   SocialMediaContainer,
   SocialMediaLink,
-} from '../../themes/styles/default'; // Assuming the default.js file is located in the themes directory
+} from './UiStyles'; // Assuming the default.js file is located in the themes directory
 import FacebookLogo from '../../assets/FacebookLogo.svg';
 import InstagramLogo from '../../assets/InstagramLogo.svg';
 

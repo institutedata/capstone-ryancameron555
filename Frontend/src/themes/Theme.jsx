@@ -4,9 +4,9 @@ import { createTheme } from '@mui/material/styles';
 
 export const mainTheme = createTheme({
   palette: {
-    type: 'light',
+    mode: 'light',
     primary: {
-      main: '#c90003',
+      main: '#d20103',
     },
     secondary: {
       main: '#ffffff',
@@ -14,7 +14,6 @@ export const mainTheme = createTheme({
     background: {
       default: '#000000',
     },
-    divider: 'rgba(255,0,0,0)',
     text: {
       hint: '#65ffff',
       disabled: '#aaaaaa',
@@ -44,8 +43,8 @@ export const mainTheme = createTheme({
         {
           props: { variant: 'outlined' },
           style: {
-            borderColor: '#c90003',
-            color: '#c90003',
+            borderColor: '#d20103',
+            color: '#d20103',
           },
         },
         // Define other button variants as needed

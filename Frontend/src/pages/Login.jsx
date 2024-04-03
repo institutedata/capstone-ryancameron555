@@ -1,12 +1,15 @@
 /** @format */
-
-import React from 'react';
+import SignupDialog from '../components/Dialog/SignupDialog';
 import LoginForm from '../components/Forms/LoginForm';
+import { PageContainer } from '../themes/styles/default';
 
 const Login = () => {
   return (
     <div>
-      <LoginForm />
+      <PageContainer>
+        <LoginForm />
+        {/* <SignupDialog /> */}
+      </PageContainer>
     </div>
   );
 };

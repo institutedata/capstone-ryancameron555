@@ -59,5 +59,5 @@ export default function AboutDialog({ dialogText }) {
 }
 
 AboutDialog.propTypes = {
-    dialogText: PropTypes.string.isRequired,
+  dialogText: PropTypes.string.isRequired,
 };

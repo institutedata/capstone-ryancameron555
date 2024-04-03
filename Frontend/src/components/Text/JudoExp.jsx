@@ -1,11 +1,11 @@
 /** @format */
 
-// Hajamie.jsx
+// JudoExp.jsx
 
 import React from 'react';
 import { StyledDiv } from './textStyle';
 
-const JudoExp = () => {
+const JudoExpContent = () => {
   return (
     <div>
       <StyledDiv>
@@ -30,4 +30,4 @@ const JudoExp = () => {
   );
 };
 
-export default JudoExp;
+export default JudoExpContent;
