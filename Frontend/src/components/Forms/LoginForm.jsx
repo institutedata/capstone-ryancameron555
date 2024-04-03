@@ -9,9 +9,26 @@ import {
   FormInput,
   FormButton,
 } from './FormStyles';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 import SignupDialog from '../Dialog/SignupDialog';
 
 export default function LoginForm() {
+  const [isLoginSuccessOpen, setIsLoginSuccessOpen] = React.useState(false);
+
+  const handleLoginSuccessClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setIsLoginSuccessOpen(false);
+  };
+
+  const handleLogin = () => {
+    // Your login logic here
+    // Assuming login is successful
+    setIsLoginSuccessOpen(true);
+  };
+
   return (
     <div>
       <FormContainer>
@@ -21,7 +38,7 @@ export default function LoginForm() {
             name="email"
             type="email"
             placeholder="johndoe@email.com"
-            autoComplete="email" // Add autocomplete
+            autoComplete="email"
           />
         </FieldContainer>
         <FieldContainer>
@@ -30,15 +47,30 @@ export default function LoginForm() {
             name="password"
             type="password"
             placeholder="password"
-            autoComplete="current-password" // Add autocomplete
+            autoComplete="current-password"
           />
         </FieldContainer>
         <ButtonContainer>
-          <FormButton>Log in</FormButton>
+          <FormButton onClick={handleLogin}>Log in</FormButton>
         </ButtonContainer>
         <br></br>
         <SignupDialog />
       </FormContainer>
+
+      {/* Snackbar for login success */}
+      <Snackbar
+        open={isLoginSuccessOpen}
+        autoHideDuration={6000}
+        onClose={handleLoginSuccessClose}
+      >
+        <MuiAlert
+          onClose={handleLoginSuccessClose}
+          severity="success"
+          sx={{ width: '100%' }}
+        >
+          Log in successful
+        </MuiAlert>
+      </Snackbar>
     </div>
   );
 }
