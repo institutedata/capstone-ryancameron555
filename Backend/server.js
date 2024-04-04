@@ -5,10 +5,22 @@ let userRoutes = require('./routes/userRoutes');
 let exerciseRoutes = require('./routes/exerciseRoutes');
 let routineRoutes = require('./routes/routineRoutes');
 
+// Enable CORS
+const cors = require('cors');
+
 require('dotenv').config();
 
 let dbConnect = require('./config/dbConnect');
+
 const app = express();
+
+// Enable CORS middleware
+app.use(
+  cors({
+    origin: 'http://localhost:5173', // Replace with the origin of your frontend application
+    credentials: true, // Allow credentials (cookies, etc.) to be sent with requests
+  })
+);
 
 // Middleware to parse JSON requests
 app.use(express.json());
@@ -23,11 +35,6 @@ app.use((req, res, next) => {
     ? Object.fromEntries(new URLSearchParams(req.url.split('?')[1]))
     : {};
   next();
-});
-
-// Serve HTML form on root route
-app.get('/', (req, res) => {
-  res.send(HTML.EXERCISE_FORM);
 });
 
 // Routes
