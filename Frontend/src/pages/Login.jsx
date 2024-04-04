@@ -9,9 +9,6 @@ const Login = () => {
     <div>
       <PageContainer>
         <LoginForm />
-        <StyledPageArea>
-          <SignupDialog />
-        </StyledPageArea>
       </PageContainer>
     </div>
   );

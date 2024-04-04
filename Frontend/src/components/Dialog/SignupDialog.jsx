@@ -2,32 +2,22 @@
 
 import React from 'react';
 import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
+import DialogStyled from './DialogStyles'; // Import DialogStyled from DialogStyles.js
 import DialogContent from '@mui/material/DialogContent';
 import SignupForm from '../Forms/SignupForm';
-import { styled } from '@mui/system';
-
-const DialogStyled = styled(Dialog)({
-  display: 'flex',
-  flexDirection: 'column',
-  padding: '20px',
-  textAlign: 'center',
-  alignItems: 'center',
-  margin: '5vw',
-});
 
 const SignupDialog = () => {
   const [open, setOpen] = React.useState(false);
-  const [maxWidth, setMaxWidth] = React.useState('sm'); // Default maxWidth
+  const [maxWidth, setMaxWidth] = React.useState('md'); // Default maxWidth
 
   const handleClickOpen = () => {
     setOpen(true);
-    setMaxWidth('md'); // Change maxWidth to 'md' (medium) when dialog is opened
+    setMaxWidth('lg'); // Change maxWidth to 'md' (medium) when dialog is opened
   };
 
   const handleClose = () => {
     setOpen(false);
-    setMaxWidth('sm'); // Reset maxWidth to 'sm' (small) when dialog is closed
+    setMaxWidth('md'); // Reset maxWidth to 'sm' (small) when dialog is closed
   };
 
   return (

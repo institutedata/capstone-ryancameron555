@@ -66,7 +66,7 @@ ExerciseCard.propTypes = {
     equipment: PropTypes.string.isRequired,
     difficulty: PropTypes.string.isRequired,
     instructions: PropTypes.string.isRequired,
-    imageUrl: PropTypes.string, // Add imageUrl prop validation
+    imageUrl: PropTypes.string,
   }).isRequired,
 };
 

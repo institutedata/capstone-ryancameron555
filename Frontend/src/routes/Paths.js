@@ -1,4 +1,5 @@
 /** @format */
+// SERVER_URL: 'http://localhost:8082/api',
 import { KEY } from '../config/APIkey';
 
 function _connect(...paths) {
@@ -10,4 +11,4 @@ export const SERVER_PATHS = {
   EXERCISE_API: _connect('exercise', 'apiPull'),
 };
 
-console.log('path', SERVER_PATHS.LOGIN);
+// console.log('path', SERVER_PATHS.LOGIN);

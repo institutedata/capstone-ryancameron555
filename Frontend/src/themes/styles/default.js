@@ -81,7 +81,7 @@ export const PageContainer = styled('div')({
   alignItems: 'center',
   justifyContent: 'center',
   width: '100%',
-  minHeight: '100vh', // Set minimum height to fill the viewport
+  minHeight: 'auto', // Set minimum height to fill the viewport
   padding: '3vw', // Add padding to create space around the content
 
   '@media (max-width: 600px)': {

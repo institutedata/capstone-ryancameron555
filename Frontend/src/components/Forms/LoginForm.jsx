@@ -10,6 +10,7 @@ import {
   FormInput,
   FormButton,
 } from './FormStyles';
+import SignupDialog from '../Dialog/SignupDialog';
 import { useNavigate } from 'react-router-dom';
 import { SERVER_PATHS } from '../../routes/Paths';
 import Snackbar from '@mui/material/Snackbar';
@@ -40,7 +41,7 @@ export default function LoginForm() {
 
   const handleLogin = async () => {
     try {
-      console.log('serverpath: ', SERVER_PATHS.LOGIN);
+      // console.log('serverpath: ', SERVER_PATHS.LOGIN);
       const response = await axios.post(SERVER_PATHS.LOGIN, {
         emailId: email,
         password,
@@ -87,6 +88,10 @@ export default function LoginForm() {
         <ButtonContainer>
           <FormButton onClick={handleLogin}>Log in</FormButton>
         </ButtonContainer>
+        <br />
+        <FieldContainer>
+          <SignupDialog />
+        </FieldContainer>
       </FormContainer>
 
       {/* Snackbar for login success */}
