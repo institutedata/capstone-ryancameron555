@@ -5,17 +5,19 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
-import emailjs from 'emailjs-com';
+import axios from 'axios';
 import { FormContainer, FieldContainer, ButtonContainer } from './FormStyles';
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
+    firstName: '',
+    lastName: '',
+    emailId: '',
     password: '',
     confirmPassword: '',
   });
 
+  const [isDialogOpen, setIsDialogOpen] = useState(true); // State to track dialog visibility
   const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
 
   const handleChange = (event) => {
@@ -26,7 +28,7 @@ const SignupForm = () => {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     // Basic validation to ensure password and confirm password match
@@ -35,26 +37,22 @@ const SignupForm = () => {
       return;
     }
 
-    // Prepare message content including all form data
-    const messageContent = `
-      Name: ${formData.name}
-      Email: ${formData.email}
-      Password: ${formData.password}
-    `;
+    try {
+      // Send form data to backend
+      const response = await axios.post(
+        'http://localhost:8082/api/user/create',
+        formData,
+        { withCredentials: true }
+      );
+      console.log('Signup successful:', response.data);
 
-    // Send email using EmailJS 
-    console.log('Sending signup data:', messageContent);
-
-    // Optionally, you can send email using EmailJS
-    emailjs
-      .send('service_id', 'template_id', { message_html: messageContent })
-      .then((response) => {
-        console.log('Email sent successfully:', response);
-        setIsSnackbarOpen(true); // Open the snackbar after successful email sending
-      })
-      .catch((error) => {
-        console.error('Error sending email:', error);
-      });
+      // Optionally, you can show a snackbar or redirect to another page upon successful signup
+      setIsSnackbarOpen(true);
+      setIsDialogOpen(false); // Close dialog upon successful signup
+    } catch (error) {
+      console.error('Error signing up:', error.response.data);
+      // Handle error (e.g., show error message)
+    }
   };
 
   const handleSnackbarClose = () => {
@@ -63,56 +61,69 @@ const SignupForm = () => {
 
   return (
     <>
-      <FormContainer>
-        <FieldContainer>
-          <TextField
-            label="Name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            fullWidth
-          />
-        </FieldContainer>
-        <FieldContainer>
-          <TextField
-            label="Email Address"
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            fullWidth
-          />
-        </FieldContainer>
-        <FieldContainer>
-          <TextField
-            label="Password"
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-            fullWidth
-          />
-        </FieldContainer>
-        <FieldContainer>
-          <TextField
-            label="Confirm Password"
-            type="password"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-            fullWidth
-          />
-        </FieldContainer>
-        <ButtonContainer>
-          <Button variant="contained" color="primary" onClick={handleSubmit}>
-            Sign Up
-          </Button>
-        </ButtonContainer>
-      </FormContainer>
+      {isDialogOpen && ( // Render dialog only if isDialogOpen is true
+        <FormContainer>
+          <FieldContainer>
+            <TextField
+              label="First Name"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              required
+              fullWidth
+            />
+          </FieldContainer>
+          <FieldContainer>
+            <TextField
+              label="Last Name"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+              required
+              fullWidth
+            />
+          </FieldContainer>
+          <FieldContainer>
+            <TextField
+              label="Email Address"
+              type="email"
+              name="emailId"
+              value={formData.emailId}
+              onChange={handleChange}
+              required
+              fullWidth
+            />
+          </FieldContainer>
+          <FieldContainer>
+            <TextField
+              label="Password"
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              fullWidth
+            />
+          </FieldContainer>
+          <FieldContainer>
+            <TextField
+              label="Confirm Password"
+              type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+              fullWidth
+            />
+          </FieldContainer>
+          <ButtonContainer>
+            <Button variant="contained" color="primary" onClick={handleSubmit}>
+              Sign Up
+            </Button>
+          </ButtonContainer>
+        </FormContainer>
+      )}
+
       <Snackbar
         open={isSnackbarOpen}
         autoHideDuration={6000}

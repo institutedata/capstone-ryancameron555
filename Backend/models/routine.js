@@ -40,7 +40,7 @@ Routine.init(
 );
 
 // Define the many-to-many association between Routine and Exercise
-Routine.belongsToMany(Exercise, { through: 'RoutineExercise' });
-Exercise.belongsToMany(Routine, { through: 'RoutineExercise' });
+// Routine.belongsToMany(Exercise, { through: 'RoutineExercise' });
+// Exercise.belongsToMany(Routine, { through: 'RoutineExercise' });
 
 module.exports = Routine;
