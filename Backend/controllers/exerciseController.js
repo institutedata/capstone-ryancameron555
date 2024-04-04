@@ -73,6 +73,20 @@ const getExercise = (res) => {
     });
 };
 
+// Function to validate exercise object
+const validateExercise = (exercise) => {
+  return (
+    exercise &&
+    exercise.name &&
+    exercise.type &&
+    exercise.muscle &&
+    exercise.equipment &&
+    exercise.difficulty &&
+    exercise.instructions &&
+    exercise.imageUrl
+  );
+};
+
 // uses JSON from request body to create new user in DB
 const createExercise = (data, res) => {
   Models.Exercise.create(data)
@@ -109,6 +123,7 @@ const deleteExercise = (req, res) => {
 };
 
 module.exports = {
+  validateExercise,
   getAPIExercise,
   getExercise,
   createExercise,

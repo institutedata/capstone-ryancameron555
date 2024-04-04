@@ -17,24 +17,20 @@ const FitnessForm = () => {
   const [exerciseType, setExerciseType] = useState('');
   const [difficulty, setDifficulty] = useState('');
   const [exercises, setExercises] = useState([]);
-  const [apiCalled, setApiCalled] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!apiCalled) {
-      console.log(SERVER_PATHS.EXERCISE_API);
-      try {
-        const queryString = `?muscle=${muscleGroup}&type=${exerciseType}&difficulty=${difficulty}`;
-        const response = await axios.get(
-          `${SERVER_PATHS.EXERCISE_API}${queryString}`
-        );
-        setExercises(response.data); // Update state with fetched exercises
-        setApiCalled(true); // Update state to indicate API call has been made
-        setFormSubmitted(true); // Update state to indicate form has been submitted
-      } catch (error) {
-        console.error('Error fetching exercises:', error);
-      }
+    try {
+      const queryString = `?muscle=${muscleGroup}&type=${exerciseType}&difficulty=${difficulty}`;
+      const response = await axios.get(
+        `${SERVER_PATHS.EXERCISE_API}${queryString}`
+      );
+      console.log(response.data); // Add this line to inspect the response data
+      setExercises(response.data); // Update state with fetched exercises
+      setFormSubmitted(true); // Update state to indicate form has been submitted
+    } catch (error) {
+      console.error('Error fetching exercises:', error);
     }
   };
 
@@ -95,24 +91,16 @@ const FitnessForm = () => {
 
       <br />
 
-      <Button
-        type="submit"
-        variant="contained"
-        color="primary"
-        disabled={apiCalled}
-      >
+      <Button type="submit" variant="contained" color="primary">
         Generate Exercise
       </Button>
-      {/* Inside the ExerciseListContainer, add a check before rendering ExerciseCard components */}
+
       <ExerciseListContainer>
-        {formSubmitted && exercises && exercises.length > 0 && (
-          <div>
-            <Typography variant="h4">Exercise Results</Typography>
-            {exercises.map((exercise, index) => (
-              <ExerciseCard key={index} exercise={exercise} />
-            ))}
-          </div>
-        )}
+        {formSubmitted &&
+          exercises.data.length > 0 &&
+          exercises.data.map((exercise, index) => (
+            <ExerciseCard key={index} exercise={exercise} />
+          ))}
       </ExerciseListContainer>
     </FitnessFormContainer>
   );
