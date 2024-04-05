@@ -26,7 +26,6 @@ export default function AboutCard() {
         </Typography>
       </CardContent>
       <CardActions style={CardStyles.actions}>
-        {/* <Button size="small">Read More</Button> */}
         <AboutDialog dialogText={<Hajamie />} />
       </CardActions>
     </Card>

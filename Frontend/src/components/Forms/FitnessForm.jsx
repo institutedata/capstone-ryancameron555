@@ -91,7 +91,12 @@ const FitnessForm = () => {
 
       <br />
 
-      <Button type="submit" variant="contained" color="primary">
+      <Button
+        type="submit"
+        variant="contained"
+        color="primary"
+        style={{ backgroundColor: 'red' }}
+      >
         Generate Exercise
       </Button>
 

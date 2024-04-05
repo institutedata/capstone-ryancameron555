@@ -9,7 +9,7 @@ import Benefits from '../Text/Benefits.jsx';
 
 function OpenDialogButton({ onClick }) {
   return (
-    <Button variant="outlined" onClick={onClick}>
+    <Button  onClick={onClick} variant="contained" style={{backgroundColor:'red'}}>
       Read More...
     </Button>
   );

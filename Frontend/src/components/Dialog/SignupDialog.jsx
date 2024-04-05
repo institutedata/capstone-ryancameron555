@@ -3,8 +3,8 @@
 import React from 'react';
 import Button from '@mui/material/Button';
 import DialogStyled from './DialogStyles'; // Import DialogStyled from DialogStyles.js
-import DialogContent from '@mui/material/DialogContent';
 import SignupForm from '../Forms/SignupForm';
+import Dialog from '@mui/material/Dialog';
 
 const SignupDialog = () => {
   const [open, setOpen] = React.useState(false);
@@ -22,14 +22,12 @@ const SignupDialog = () => {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button variant="contained" onClick={handleClickOpen}>
         Sign Up Here
       </Button>
-      <DialogStyled open={open} onClose={handleClose} maxWidth={maxWidth}>
-        <DialogContent>
-          <SignupForm />
-        </DialogContent>
-      </DialogStyled>
+      <Dialog open={open} onClose={handleClose} style={{width:'auto' }}>
+        <SignupForm />
+      </Dialog>
     </div>
   );
 };

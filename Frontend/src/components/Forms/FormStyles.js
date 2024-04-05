@@ -17,6 +17,7 @@ import { mainTheme } from '../../themes/Theme';
 export const FormContainer = styled('form')({
   display: 'flex',
   flexDirection: 'column',
+  alignSelf: 'center',
   alignItems: 'center',
   justifyContent: 'center',
   width: '90%',
@@ -25,7 +26,7 @@ export const FormContainer = styled('form')({
   borderRadius: '1vw',
   backgroundColor: '#ffffff',
   color: '#000000',
-  marginTop: '2.5vh',
+  margin: '2.5vh',
 });
 
 export const RowContainer = styled('div')({
@@ -55,6 +56,7 @@ export const FormLabel = styled('label')({
   fontSize: '16px',
   marginBottom: '5px',
   color: '#000000 !important', // Set text color to black
+  width: '100%',
 });
 
 export const FormInput = styled(Input)(({ theme }) => ({
@@ -70,6 +72,7 @@ export const FormInput = styled(Input)(({ theme }) => ({
 
 export const FormButton = styled(Button)({
   width: '100%',
+  marginTop: '10px',
   padding: '10px',
   justifyContent: 'center',
   backgroundColor: '#0056b3', // Set button background color

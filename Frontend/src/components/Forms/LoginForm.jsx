@@ -86,12 +86,17 @@ export default function LoginForm() {
           />
         </FieldContainer>
         <ButtonContainer>
-          <FormButton onClick={handleLogin}>Log in</FormButton>
+          <FormButton
+            onClick={handleLogin}
+            style={{ backgroundColor: 'red', color: 'white' }}
+          >
+            Log in
+          </FormButton>
         </ButtonContainer>
         <br />
-        <FieldContainer>
-          <SignupDialog />
-        </FieldContainer>
+        {/* <FieldContainer> */}
+        <SignupDialog />
+        {/* </FieldContainer> */}
       </FormContainer>
 
       {/* Snackbar for login success */}

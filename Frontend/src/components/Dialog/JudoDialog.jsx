@@ -10,7 +10,7 @@ import DialogStyled from './DialogStyles.js';
 
 function OpenDialogButton({ onClick }) {
   return (
-    <Button variant="outlined" onClick={onClick}>
+    <Button  onClick={onClick} variant="contained" style={{backgroundColor:'red'}}>
       Read More...
     </Button>
   );

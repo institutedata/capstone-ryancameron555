@@ -32,8 +32,8 @@ const Home = () => {
         </Grid>
       </Grid>
 
-      <StyledPageArea id="contact">
-        <ContactForm />
+      <StyledPageArea>
+        <ContactForm id="contact" />
         <Map />
       </StyledPageArea>
       <div style={{ textAlign: 'center' }}>
